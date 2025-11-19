@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #dbeafe 0%, #eff6ff 100%); /* Biru langit lembut mirip gambar */
+  --text-dark: #111827;
+  --text-sub: #6b7280;
+  --primary-black: #1f2937; /* Warna tombol hitam */
+  --input-bg: #f3f4f6; /* Warna abu-abu input */
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+  color: var(--text-dark);
+}
+
+/* WRAPPER UTAMA: Supaya footer/konten tidak nabrak */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* --- 1. NAVBAR GAYA "DUNA" (Tetap Dipertahankan) --- */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+}
+
+.nav-brand { font-weight: 700; font-size: 1.1rem; text-decoration: none; color: var(--text-dark); display: flex; align-items: center; gap: 8px; }
+.nav-center { display: flex; gap: 5px; background: rgba(255,255,255,0.5); padding: 4px; border-radius: 30px; }
+.nav-link { text-decoration: none; color: var(--text-dark); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
+.nav-link:hover { background: rgba(255,255,255,0.8); }
+.nav-link.active { background: var(--primary-black); color: white; }
+.btn-nav-action { background: var(--primary-black); color: white; border: none; padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 0.85rem; cursor: pointer; text-decoration: none; }
+
+/* --- 2. LAYOUT CONTENT: CENTERED (Untuk Login & Upload) --- */
+.page-centered {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 40px;
+}
+
+/* --- 3. CARD GAYA "EBOLT" (Sesuai Gambar) --- */
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 32px; /* Sudut sangat bulat sesuai gambar */
+  padding: 40px;
+  width: 100%;
+  max-width: 380px; /* Lebar mirip gambar HP/Card */
+  text-align: center;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); /* Shadow halus */
+  border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.card-icon-top {
+  width: 50px; height: 50px;
+  background: white;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  font-size: 1.5rem;
+}
+
+.glass-card h2 { font-size: 1.5rem; font-weight: 700; margin: 0 0 10px 0; color: #111; }
+.glass-card p { font-size: 0.9rem; color: var(--text-sub); margin-bottom: 30px; line-height: 1.5; }
+
+/* INPUT STYLE (Persis Gambar) */
+.input-wrapper { position: relative; margin-bottom: 16px; text-align: left; }
+.input-wrapper input, .input-wrapper textarea, .input-wrapper select {
+  width: 100%;
+  padding: 14px 14px 14px 44px; /* Padding kiri besar utk ikon */
+  background: var(--input-bg);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  color: #333;
+  transition: 0.2s;
+  font-family: inherit;
+}
+.input-wrapper input:focus { background: white; border-color: #e5e7eb; outline: none; box-shadow: 0 0 0 2px rgba(0,0,0,0.05); }
+.input-icon { position: absolute; left: 14px; top: 14px; color: #9ca3af; font-size: 1.1rem; }
+
+/* BUTTON STYLE (Hitam Tebal) */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary-black);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* SOCIAL LOGIN SIMULATION (Bagian bawah gambar) */
+.divider { margin: 24px 0; font-size: 0.8rem; color: #9ca3af; display: flex; align-items: center; gap: 10px; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: #e5e7eb; }
+.social-row { display: flex; gap: 15px; justify-content: center; }
+.social-btn { width: 50px; height: 40px; border: 1px solid #e5e7eb; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: not-allowed; background: white; font-size: 1.2rem; }
+
+/* --- 4. MADING GRID (Tetap Rapi) --- */
+.mading-container { max-width: 1200px; margin: 0 auto; width: 100%; }
+.mading-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+.poster-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: transform 0.3s; }
+.poster-card:hover { transform: translateY(-5px); }
+.poster-img-box { height: 220px; overflow: hidden; }
+.poster-img-box img { width: 100%; height: 100%; object-fit: cover; }
+.poster-info { padding: 20px; }
