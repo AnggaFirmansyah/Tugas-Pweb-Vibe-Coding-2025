@@ -1,0 +1,14 @@
+# Abaikan folder dependensi
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+
+# Abaikan file environment (rahasia)
+.env
+backend/.env
+
+# Abaikan file sistem/log
+.DS_Store
+npm-debug.log
+build/
+dist/
